@@ -1,0 +1,17 @@
+[package]
+name = "calculator"
+version = "0.1.0"
+edition = "2021"
+description = "Rust Project for GTK calculator app"
+keywords = ["calculator", "math"]
+readme = "README.md"
+
+[dependencies]
+gtk = { version = "0.8.2", package = "gtk4", features = ["v4_12"] }
+log = "0.4.21"
+time = "0.3.36"
+
+[dependencies.simple_logger]
+version = "5.0.0"
+default-features = false
+features = ["colors", "threads", "timestamps"]
