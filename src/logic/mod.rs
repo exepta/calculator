@@ -142,4 +142,11 @@ impl Calculator {
             stack.pop()
         }
     }
+
+    // Function for simple calculation. Returned the result from the calc way.
+    pub fn calc(way: &str) -> f32 {
+        let parse = Self::parse(way);
+        let eva = Self::expression(parse.unwrap());
+        Self::evaluate(eva).unwrap()
+    }
 }
