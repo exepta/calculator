@@ -1,5 +1,6 @@
 mod logic;
 mod load;
+mod display;
 
 use log::{error, info};
 use simple_logger::SimpleLogger;
@@ -33,7 +34,7 @@ fn init() {
 fn create_window_ui(application: &Application) {
     info!("Creating GTK4 Window...");
 
-    let window = &ApplicationWindow::new(application);
+    let window = display::Display::new(application);
     window.present();
 
     if window.is_visible() {

@@ -1,3 +1,5 @@
+use log::error;
+
 /** Enum for handling math operators like + - * / */
 #[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub enum Operators {
@@ -146,6 +148,10 @@ impl Calculator {
     // Function for simple calculation. Returned the result from the calc way.
     pub fn calc(way: &str) -> f32 {
         let parse = Self::parse(way);
+        if parse.is_err() {
+            error!("{:?}", parse.err().unwrap());
+            return 0.0;
+        }
         let eva = Self::expression(parse.unwrap());
         Self::evaluate(eva).unwrap()
     }
